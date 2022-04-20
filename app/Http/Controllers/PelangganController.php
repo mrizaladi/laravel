@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\PelangganModel;
+// use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use \PDF;
 
 class PelangganController extends Controller
 {
@@ -37,6 +40,18 @@ class PelangganController extends Controller
      */
     public function store(Request $request)
     {
+
+        $v = Validator::make($request->all(), [
+            'email' => 'required|unique:pelanggan',
+            'nama' => 'required',
+            'telp' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|unique:pelanggan',
+            'alamat' => 'required',
+        ]);
+
+        if ($v->fails()) {
+            return redirect()->back()->withErrors($v->errors());
+        }
+
         // return $request->all(); // Untuk mengetest data yang diminta
         $plg = PelangganModel::create([
             // 'kode_pelanggan'=>,
@@ -110,6 +125,19 @@ class PelangganController extends Controller
         // return redirect()->route('laporans.index');
 
         // return $id;
+    }
 
+    public function generatePDF()
+    {
+        $pelanggan=PelangganModel::get();
+        $data = [
+
+            'title' => 'Laporan Data Costumer',
+            'date' => date('m/d/Y'),
+            'pelanggan' => $pelanggan
+        ];
+
+        $pdf = PDF::loadView('cetaklaporan', $data);
+        return $pdf->download('laporandata.pdf');
     }
 }

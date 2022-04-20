@@ -15,7 +15,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="card mt-5">
-                    <h5 class="card-header">Laporan Data Costumer</h5>
+                    <h5 class="card-header">Data Costumer</h5>
                     <div class="card-body">
                         <table class="table">
                             <thead>
@@ -59,7 +59,10 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <center><a type="" class="btn btn-primary" href="laporans/create">TAMBAH</a></center>
+                        <center>
+                            <a type="" class="btn btn-primary" href="laporans/create">Tambah Data</a>
+                            <a type="" class="btn btn-primary" href="generate-pdf">Download Laporan</a>
+                        </center>
                     </div>
                 </div>
             </div>

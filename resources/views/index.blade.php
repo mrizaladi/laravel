@@ -23,28 +23,40 @@
                                 <label for="inputNama" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
                                     <input stype="text" class="form-control" id="inputNama" name="nama">
+                                    @if($errors->has('nama'))
+										<div class="alert alert-danger mt-1">{{ $errors->first('nama') }}</div>
+									@endif
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="inputEmail" name="email">
+                                    @if($errors->has('email'))
+										<div class="alert alert-danger mt-1">{{ $errors->first('email') }}</div>
+									@endif
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputTelp" class="col-sm-2 col-form-label">Telp</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="inputTelp" name="telp">
+                                    @if($errors->has('telp'))
+										<div class="alert alert-danger mt-1">{{ $errors->first('telp') }}</div>
+									@endif
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputAlamat" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="inputAlamat" name="alamat">
+                                    @if($errors->has('alamat'))
+										<div class="alert alert-danger mt-1">{{ $errors->first('alamat') }}</div>
+									@endif
                                 </div>
                             </div>
                             <center>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah data yang ada inputkan sudah benar?')">Submit</button>
                                 <a type="" class="btn btn-primary" href="/laporans">Lihat Laporan</a>
                             </center>
 

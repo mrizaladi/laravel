@@ -25,29 +25,42 @@
                                 <div class="col-sm-10">
                                     <input stype="text" class="form-control" id="inputNama" name="nama" value="{{ $edit->nama }}">
                                     <input type="hidden" class="form-control" id="inputNama" name="id" value="{{ $edit->id }}">
+                                    @if($errors->has('nama'))
+										<div class="alert alert-danger mt-1">{{ $errors->first('nama') }}</div>
+									@endif
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="inputEmail" name="email" value="{{ $edit->email }}">
+                                    @if($errors->has('email'))
+										<div class="alert alert-danger mt-1">{{ $errors->first('email') }}</div>
+									@endif
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputTelp" class="col-sm-2 col-form-label">Telp</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="inputTelp" name="telp" value="{{ $edit->telp }}">
+                                    @if($errors->has('telp'))
+										<div class="alert alert-danger mt-1">{{ $errors->first('telp') }}</div>
+									@endif
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputAlamat" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="inputAlamat" name="alamat" value="{{ $edit->alamat }}">
+                                    @if($errors->has('alamat'))
+										<div class="alert alert-danger mt-1">{{ $errors->first('alamat') }}</div>
+									@endif
                                 </div>
                             </div>
                             <center>
-                                <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda yakin ingin mengedit data ini?')">Edit</button>
-                                <a type="" class="btn btn-primary" href="/laporans">Lihat Laporan</a>
+                                {{-- onclick="return confirm('Apakah Anda yakin ingin mengedit data ini?')" --}}
+                                <button type="submit" class="btn btn-primary" >Edit</button>
+                                <a type="" class="btn btn-primary" href="/laporans">Lihat Data</a>
                             </center>
 
                         </form>

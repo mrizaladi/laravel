@@ -37,3 +37,6 @@ Route::get('/', [
 
 Route::resource('laporans', PelangganController::class);
 
+Route::get('generate-pdf', [PelangganController::class, 'generatePDF']);
+
+
